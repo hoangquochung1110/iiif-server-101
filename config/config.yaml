@@ -1,0 +1,4 @@
+tile_size: 512
+image_format: 'webp'
+quality: 80
+iiif_base_url: 'http://localhost:8080/iiif/2/'
