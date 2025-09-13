@@ -2,4 +2,4 @@ PyYAML
 Pillow
 python-dotenv
 boto3
-iiif-prezi
+iiif-prezi==0.3.0
