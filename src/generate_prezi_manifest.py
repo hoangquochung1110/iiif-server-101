@@ -18,6 +18,8 @@ def generate_manifest(image_dir: Path, base_url: str, label: str, output: Path) 
     images (e.g. ``https://example.com/master``).
     """
     factory = ManifestFactory()
+    # iiif-prezi requires a base Presentation URI before creating resources
+    factory.set_base_prezi_uri(base_url)
     manifest = factory.manifest(ident="manifest", label=label)
     seq = manifest.sequence(ident="sequence-0")
 
