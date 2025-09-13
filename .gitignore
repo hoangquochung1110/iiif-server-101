@@ -114,3 +114,6 @@ public/
 
 # Trae output
 .trae/
+
+.bru
+bruno.json

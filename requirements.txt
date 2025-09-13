@@ -1,2 +1,5 @@
 PyYAML
 Pillow
+python-dotenv
+boto3
+iiif-prezi

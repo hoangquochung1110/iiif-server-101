@@ -1,4 +1,61 @@
+# IIIF All-Static Configuration
+# These values can be overridden by environment variables
+# See .env.example for environment variable names
+
+# Basic IIIF settings
 tile_size: 512
 image_format: 'webp'
 quality: 80
-iiif_base_url: 'http://localhost:8080/iiif/2/'
+iiif_base_url: 'https://pub-03bf8c5877f7481fbf5109cde1470950.r2.dev' # S3 bucket URL
+
+# Configurable tiling variants
+tiling:
+  # Size variants - width constraints (w,)
+  width_constraints: [512, 1024, 1200, 2048]
+  
+  # Size variants - height constraints (,h)
+  height_constraints: [512, 1024, 1200, 2048]
+  
+  # Percentage scaling (pct:n)
+  percentages: [10, 25, 50, 75, 90]
+  
+  # Exact size variants (w,h)
+  exact_sizes:
+    - [256, 256]
+    - [512, 512]
+    - [1024, 1024]
+    - [1200, 1200]
+    - [2048, 2048]
+  
+  # Best fit variants (!w,h)
+  best_fit_sizes:
+    - [512, 512]
+    - [1024, 1024]
+    - [1200, 1200]
+    - [2048, 2048]
+  
+  # Custom regions to generate (x, y, width, height)
+  # Use 'auto' for dynamic calculation based on image size
+  custom_regions:
+    - [0, 0, 512, 512]  # Top-left 512x512
+    - [0, 0, 1024, 1024]  # Top-left 1024x1024
+    - [0, 0, 2048, 2048]  # Top-left 2048x2048
+    - [256, 256, 512, 512]  # Center 512x512 region
+    - [512, 512, 1024, 1024]  # Center 1024x1024 region
+  
+  # Rotation angles to generate (degrees)
+  rotations: [0]
+  
+  # Quality variants to generate
+  qualities: ['default']
+  
+  # Image formats to generate
+  formats: ['webp']
+  
+  # Enable/disable specific variant types
+  enable:
+    regions: true
+    tiles: true  # Standard tile grid
+    rotations: false
+    qualities: true
+    size_variants: true
