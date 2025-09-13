@@ -389,3 +389,16 @@ Ví dụ `info.json`:
   ]
 }
 ```
+
+## Quick Manifest Generation with iiif-prezi
+
+Nếu bạn đã lưu trữ các file ảnh gốc trên một dịch vụ như Cloudflare R2, bạn có thể tạo một manifest IIIF Presentation API v2 đơn giản bằng script `src/generate_prezi_manifest.py`. Tham số `--base-url` là bắt buộc để chỉ ra nơi lưu trữ các ảnh gốc:
+
+```bash
+python src/generate_prezi_manifest.py --image-dir data/masters \
+    --base-url https://pub-03bf8c5877f7481fbf5109cde1470950.r2.dev/master \
+    --label "R2 Manifest" \
+    --output manifest.json
+```
+
+Script này sử dụng thư viện `iiif-prezi` để tạo manifest tham chiếu trực tiếp tới các ảnh gốc tại URL đã cho.
